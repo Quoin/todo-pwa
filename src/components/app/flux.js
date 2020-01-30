@@ -27,5 +27,5 @@ export const reducers = concatenateReducers([{
 }]);
 
 export const selectors = Object.freeze({
-    counter: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER)
+    counter: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, 0)
 });
