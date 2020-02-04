@@ -11,8 +11,7 @@ const Component = (props) => {
     return (
         <div className="TodoSsrApp">
             <div>Times clicked: {props.counter}</div>
-            <div><a onClick={() => props.click()}>one more</a></div>
-            <div>This came from outside the component: {props.fromParent}</div>
+            <div><span onClick={() => props.click()}>one more</span></div>
         </div>
     );
 };

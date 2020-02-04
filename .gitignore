@@ -1,3 +1,7 @@
 /build
 /node_modules
 /public
+/src/cordova/node_modules
+/src/cordova/www
+/src/cordova/platforms
+/src/cordova/plugins
