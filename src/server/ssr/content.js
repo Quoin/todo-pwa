@@ -10,7 +10,7 @@ import { default as middlewares } from './../../middlewares';
 
 // import _debug from './debug'; const debug = _debug('content');
 
-export default (rootPath='') => {
+export default (rootPath='', url='/') => {
     const initialState = fromJS({
         something: '<html bad><div>a</div></html>'
     });
@@ -29,7 +29,7 @@ export default (rootPath='') => {
         ]
     };
 
-    const html = ssrWithStore(App, store, page);
+    const html = ssrWithStore(App, store, page, url);
 
     return html;
 };
