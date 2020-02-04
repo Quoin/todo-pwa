@@ -7,7 +7,7 @@ import _debug from './debug'; const debug = _debug('index');
 export default async (req, res) => {
     debug(`XF:${req.headers['x-forwareded-for']}||IP:${req.connection.remoteAddress}: calling(): req.path=`, req.path);
     try {
-        const html = content(`${PUBLIC_PATH}/`);
+        const html = content(`${PUBLIC_PATH}/`, req.url);
 
         res
             .status(200)
