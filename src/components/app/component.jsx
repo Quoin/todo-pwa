@@ -4,6 +4,7 @@ import {
     PropTypes,
     React,
     Route,
+    RoutesInfo,
     Switch
 } from '@quoin/react-utils';
 
@@ -19,16 +20,24 @@ const Component = (props) => {
             <div><span onClick={() => props.click()}>one more</span></div>
             <hr />
             <ul>
-                <li>Home page: <Link to="/">Home</Link></li>
-                <li>Topics: <Link to="/topics">Without ID</Link> and <Link to="/topics/123">With ID</Link></li>
+                <li>Home page: <Link to={RoutesInfo.to('home')}>Home</Link></li>
+                <li>
+                    Topics:
+                    {' '}
+                    <Link to={RoutesInfo.to('topics')}>Without ID</Link>
+                    {' '}
+                    and
+                    {' '}
+                    <Link to={RoutesInfo.to('topic', { topicId: 123})}>With ID</Link>
+                </li>
             </ul>
             <hr />
             <Switch>
-                <Route path="/topics">
+                <Route path={RoutesInfo.path('topics')}>
                     <div>We should render Topics below</div>
                     <Topics />
                 </Route>
-                <Route path="/">
+                <Route path={RoutesInfo.path('home')}>
                     <Home />
                 </Route>
             </Switch>

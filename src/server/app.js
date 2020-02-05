@@ -2,7 +2,11 @@ import express from 'express';
 import path from 'path';
 import 'regenerator-runtime';
 
-import { PUBLIC_FOLDER, PUBLIC_PATH } from './../constants';
+import {
+    RoutesInfo
+} from '@quoin/react-utils';
+
+import { PUBLIC_FOLDER, PUBLIC_PATH, ROUTES_INFO } from './../constants';
 
 import ssr from './ssr';
 
@@ -12,6 +16,9 @@ export default () => {
     app.use(PUBLIC_PATH, express.static(PUBLIC_FOLDER));
 
     app.get('/favicon.ico', (req, res) => res.status(404).send().end());
+
+    RoutesInfo.configure(ROUTES_INFO);
+    RoutesInfo.register(app, ssr);
 
     app.get('*', ssr);
 
