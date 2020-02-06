@@ -10,8 +10,6 @@ import {
 import Topic from './../topic';
 
 const Component = (props) => {
-    const match = useRouteMatch();
-
     return (
         <>
             <div>We are in a Topic...</div>

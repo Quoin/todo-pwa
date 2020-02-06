@@ -9,6 +9,7 @@ import {
 } from '@quoin/react-utils';
 
 import Home from './../home';
+import NotFound from './../not-found';
 import Topics from './../topics';
 
 import { NAME } from './constants';
@@ -33,13 +34,9 @@ const Component = (props) => {
             </ul>
             <hr />
             <Switch>
-                <Route path={RoutesInfo.path('topics')}>
-                    <div>We should render Topics below</div>
-                    <Topics />
-                </Route>
-                <Route path={RoutesInfo.path('home')}>
-                    <Home />
-                </Route>
+                <Route exact path={RoutesInfo.path('home')} component={Home} />
+                <Route path={RoutesInfo.path('topics')} component={Topics} />
+                <Route component={NotFound} />
             </Switch>
         </div>
     );

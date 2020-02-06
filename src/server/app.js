@@ -9,6 +9,7 @@ import {
 import { PUBLIC_FOLDER, PUBLIC_PATH, ROUTES_INFO } from './../constants';
 
 import ssr from './ssr';
+import ssr404 from './ssr-404';
 
 export default () => {
     const app = express();
@@ -20,7 +21,7 @@ export default () => {
     RoutesInfo.configure(ROUTES_INFO);
     RoutesInfo.register(app, ssr);
 
-    app.get('*', ssr);
+    app.get('*', ssr404);
 
     return app;
 };
